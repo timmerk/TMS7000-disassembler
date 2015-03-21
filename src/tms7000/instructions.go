@@ -89,8 +89,8 @@ var F_iop_B = Format{1, oneArg("%%%d,B")}
 var F_iop_Rn = Format{2, twoArgs("%%%d,R%d")}
 var F_iop16_Rn = Format{3, iop16bitOneReg("%%>%04x,R%d")}
 
-var F_A_B = Format{1, noArgs("A,B")}
-var F_B_A = Format{1, noArgs("B,A")}
+var F_A_B = Format{0, noArgs("A,B")}
+var F_B_A = Format{0, noArgs("B,A")}
 
 var F_Rn_Rn = Format{2, twoArgs("R%d,R%d")}
 var F_A_Pn = Format{1, oneArg("A,P%d")}
@@ -199,7 +199,7 @@ var TMS7000InstructionSet = InstructionSet{
 	0x9e: {"CALL", "", F_starRn},
 
 	0xb5: {"CLR", "", F_A},
-	0xc6: {"CLR", "", F_B},
+	0xc5: {"CLR", "", F_B},
 	0xd5: {"CLR", "", F_Rn},
 
 	0x6d: {"CMP", "", F_B_A},
@@ -401,6 +401,7 @@ var TMS7000InstructionSet = InstructionSet{
 	0xc1: {"TSTB", "", F_None},
 
 	0xb6: {"XCHB", "", F_A},
+	0xc6: {"XCHB", "", F_B},
 	0xd6: {"XCHB", "", F_Rn},
 
 	0x65: {"XOR", "", F_B_A},
